@@ -117,7 +117,7 @@
             <div class="fade-up bg-card border border-border rounded-2xl p-8">
                 <div class="text-2xl mb-4">📧</div>
                 <h3 class="text-base font-semibold mb-2">Email us directly</h3>
-                <a href="mailto:hello@pipedriveapps.com" class="text-accent text-sm hover:underline">hello@pipedriveapps.com</a>
+                <a href="mailto:pipedriveapps@tododrive.com" class="text-accent text-sm hover:underline">pipedriveapps@tododrive.com</a>
             </div>
             <div class="fade-up bg-card border border-border rounded-2xl p-8">
                 <div class="text-2xl mb-4">⚡</div>
@@ -164,7 +164,7 @@
             const message = form.querySelector('#message').value;
             const subject = encodeURIComponent('Contact: PipeDrive Apps');
             const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInterest: ${interest}\nMessage: ${message}`);
-            window.location.href = `mailto:hello@pipedriveapps.com?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:pipedriveapps@tododrive.com?subject=${subject}&body=${body}`;
             btn.textContent = 'Send Message →'; btn.disabled = false;
         }
     });
