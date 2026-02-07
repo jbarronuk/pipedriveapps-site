@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClickUp + Pipedrive Integration — Automate Projects from Deals | PipeDrive Apps</title>
+    <meta name="description" content="Connect Pipedrive CRM with ClickUp. Automatically create projects and tasks from your ClickUp templates when deals move through your pipeline. Join the waitlist.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#0a0a0b', card: '#131316', 'card-hover': '#1a1a1f',
+                        border: '#222228', muted: '#8a8a96',
+                        accent: '#7b68ee', 'accent-hover': '#6a57dd',
+                        pipedrive: '#16c172', clickup: '#7b68ee',
+                    },
+                    fontFamily: { sans: ['DM Sans', 'sans-serif'], mono: ['Space Mono', 'monospace'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-stat { background: linear-gradient(135deg, #7b68ee, #49ccf9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .fade-up { opacity: 0; transform: translateY(24px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-bg text-gray-100 font-sans antialiased">
+
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-4 bg-bg/80 backdrop-blur-xl border-b border-border flex items-center justify-between">
+    <a href="../" class="font-mono text-lg font-bold text-white tracking-tight">pipedrive<span class="text-pipedrive">apps</span></a>
+    <div class="hidden md:flex items-center gap-8">
+        <a href="../" class="text-sm font-medium text-muted hover:text-white transition-colors">Home</a>
+        <a href="../our-apps.html" class="text-sm font-medium text-muted hover:text-white transition-colors">Our Apps</a>
+        <a href="#waitlist" class="text-sm font-semibold bg-accent text-white px-5 py-2 rounded-lg hover:bg-accent-hover transition-all">Join Waitlist</a>
+    </div>
+    <button class="md:hidden" id="hamburger" aria-label="Menu">
+        <div class="w-5 h-0.5 bg-gray-200 mb-1.5"></div><div class="w-5 h-0.5 bg-gray-200 mb-1.5"></div><div class="w-5 h-0.5 bg-gray-200"></div>
+    </button>
+</nav>
+<div class="hidden fixed top-[57px] left-0 right-0 z-40 bg-bg border-b border-border p-6 flex-col gap-5" id="mobileNav">
+    <a href="../" class="text-sm font-medium text-muted hover:text-white">Home</a>
+    <a href="../our-apps.html" class="text-sm font-medium text-muted hover:text-white">Our Apps</a>
+    <a href="#waitlist" class="text-sm font-semibold bg-accent text-white px-5 py-2 rounded-lg text-center">Join Waitlist</a>
+</div>
+
+<!-- HERO -->
+<section class="min-h-[90vh] flex items-center justify-center text-center px-6 pt-36 pb-20 relative overflow-hidden">
+    <div class="absolute -top-[30%] left-[30%] -translate-x-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(123,104,238,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+    <div class="absolute -top-[20%] right-[10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(73,204,249,0.06)_0%,transparent_70%)] pointer-events-none"></div>
+    <div class="relative max-w-2xl">
+        <a href="../waitlist.html" class="fade-up inline-flex items-center gap-1.5 text-sm text-muted hover:text-white transition-colors mb-8">← Back to Upcoming Integrations</a>
+
+        <div class="fade-up flex items-center justify-center gap-4 mb-8">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#4aeaac] to-pipedrive flex items-center justify-center text-2xl font-bold text-bg">P</div>
+            <div class="relative w-10 h-0.5 bg-gradient-to-r from-pipedrive to-clickup">
+                <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-bg px-2 text-lg text-muted">⇄</span>
+            </div>
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-clickup to-[#49ccf9] flex items-center justify-center text-2xl font-bold text-white">C</div>
+        </div>
+
+        <div class="fade-up mb-7">
+            <span class="inline-flex items-center gap-2 bg-[rgba(255,187,51,0.1)] border border-[rgba(255,187,51,0.2)] rounded-full px-4 py-1.5 text-xs font-semibold text-[#ffbb33] uppercase tracking-wider">Coming Soon</span>
+        </div>
+
+        <h1 class="fade-up text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-5">
+            <span class="text-pipedrive">Pipedrive</span> meets <span class="text-clickup">ClickUp</span>
+        </h1>
+        <p class="fade-up text-lg text-muted max-w-lg mx-auto mb-9 leading-relaxed">Stop copying deals into tasks manually. Our integration automatically creates ClickUp projects and tasks from your templates when deals move through your Pipedrive pipeline.</p>
+        <a href="#waitlist" class="fade-up inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold bg-accent text-white hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(123,104,238,0.3)] transition-all">Join the Waitlist →</a>
+    </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="border-t border-border px-6 py-16 text-center">
+    <div class="max-w-xl mx-auto fade-up">
+        <p class="gradient-stat text-5xl md:text-7xl font-bold tracking-tight mb-2">546+</p>
+        <p class="text-[17px] text-muted max-w-md mx-auto">people on ClickUp's feedback board have requested a native Pipedrive integration — and counting.</p>
+        <p class="mt-3 text-xs text-[#555]">Source: <a href="https://feedback.clickup.com/integrations/p/pipedrive-crm" target="_blank" rel="noopener" class="text-[#666] underline hover:text-muted">ClickUp Feature Requests</a></p>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="border-t border-border px-6 py-24">
+    <div class="max-w-5xl mx-auto">
+        <p class="fade-up font-mono text-xs uppercase tracking-[0.15em] text-accent mb-4">Planned Features</p>
+        <h2 class="fade-up text-3xl md:text-4xl font-bold tracking-tight mb-4">What we're building</h2>
+        <p class="fade-up text-base text-muted max-w-lg leading-relaxed mb-12">Based on real feedback from hundreds of users who need Pipedrive and ClickUp to work together.</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="fade-up bg-card border border-border rounded-xl p-7 hover:border-[rgba(123,104,238,0.3)] transition-colors">
+                <div class="text-2xl mb-4">🔄</div>
+                <h3 class="text-[17px] font-semibold mb-2">Deal → Project Automation</h3>
+                <p class="text-sm text-muted leading-relaxed">Automatically create ClickUp projects from your templates when deals move through your Pipedrive pipeline stages. No more manual handoffs.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7 hover:border-[rgba(123,104,238,0.3)] transition-colors">
+                <div class="text-2xl mb-4">📋</div>
+                <h3 class="text-[17px] font-semibold mb-2">Stage-Based Templates</h3>
+                <p class="text-sm text-muted leading-relaxed">Assign different ClickUp templates to each pipeline stage. Move a deal to "Contracting"? Your legal team gets their full task checklist created automatically from a template.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7 hover:border-[rgba(123,104,238,0.3)] transition-colors">
+                <div class="text-2xl mb-4">📄</div>
+                <h3 class="text-[17px] font-semibold mb-2">ClickUp Template Powered</h3>
+                <p class="text-sm text-muted leading-relaxed">Use your existing ClickUp templates to spin up projects and task lists automatically. Define your ideal structure once, and let every new deal follow the same playbook.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7 hover:border-[rgba(123,104,238,0.3)] transition-colors">
+                <div class="text-2xl mb-4">👥</div>
+                <h3 class="text-[17px] font-semibold mb-2">Team Assignment</h3>
+                <p class="text-sm text-muted leading-relaxed">Automatically assign tasks to the right people. Delivery, legal, onboarding — everyone gets their work without needing Pipedrive access.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7 hover:border-[rgba(123,104,238,0.3)] transition-colors">
+                <div class="text-2xl mb-4">🎯</div>
+                <h3 class="text-[17px] font-semibold mb-2">Custom Field Mapping</h3>
+                <p class="text-sm text-muted leading-relaxed">Map Pipedrive custom fields to ClickUp. Deal type, value, contacts — carry the context that matters into your project tasks.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- USE CASES -->
+<section class="border-t border-border px-6 py-24">
+    <div class="max-w-5xl mx-auto">
+        <p class="fade-up font-mono text-xs uppercase tracking-[0.15em] text-accent mb-4">Example Workflows</p>
+        <h2 class="fade-up text-3xl md:text-4xl font-bold tracking-tight mb-4">Automation that saves hours</h2>
+        <p class="fade-up text-base text-muted max-w-lg leading-relaxed mb-12">Here are just a few of the workflows you'll be able to set up.</p>
+        <div class="grid md:grid-cols-2 gap-5">
+            <div class="fade-up bg-card border border-border rounded-xl p-7">
+                <p class="font-mono text-xs text-pipedrive mb-1">Pipedrive: Deal won →</p>
+                <p class="font-mono text-xs text-clickup mb-3">ClickUp: Create onboarding project</p>
+                <h3 class="text-base font-semibold mb-2">Automatic Project Kickoff</h3>
+                <p class="text-sm text-muted leading-relaxed">When a deal is won, a full project with tasks, subtasks, and assignees is created in ClickUp from your chosen template — ready to go.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7">
+                <p class="font-mono text-xs text-pipedrive mb-1">Pipedrive: Stage changed to "Contracting" →</p>
+                <p class="font-mono text-xs text-clickup mb-3">ClickUp: Create legal review tasks</p>
+                <h3 class="text-base font-semibold mb-2">Stage-Based Handoffs</h3>
+                <p class="text-sm text-muted leading-relaxed">Pipeline stage changes trigger task lists for the right team. Legal, finance, operations — everyone stays in the loop.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="border-t border-border px-6 py-24" id="waitlist">
+    <div class="max-w-xl mx-auto">
+        <div class="fade-up bg-card border border-border rounded-2xl px-8 md:px-10 py-12 text-center relative overflow-hidden">
+            <div class="absolute -bottom-[40%] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(123,104,238,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+            <div class="relative">
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Join the Waitlist</h2>
+                <p class="text-[15px] text-muted mb-7 leading-relaxed">Be the first to know when the ClickUp + Pipedrive integration launches. Early access members get priority onboarding.</p>
+
+                <!--
+                    SETUP: Replace YOUR_FORM_ID with your Formspree form ID.
+                    1. Sign up at https://formspree.io (free — 50 submissions/month)
+                    2. Create a form → copy the ID (e.g., "xpznqkdl")
+                    3. Replace YOUR_FORM_ID in the action URL below
+                -->
+                <form class="text-left" id="waitlistForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="hidden" name="_subject" value="New Waitlist Signup: ClickUp + Pipedrive Integration">
+                    <div class="mb-4">
+                        <label for="name" class="block text-xs font-medium text-muted mb-1.5">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required
+                            class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 placeholder-[#444] focus:border-accent focus:outline-none transition-colors">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-xs font-medium text-muted mb-1.5">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@company.com" required
+                            class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 placeholder-[#444] focus:border-accent focus:outline-none transition-colors">
+                    </div>
+                    <div class="mb-4">
+                        <label for="company" class="block text-xs font-medium text-muted mb-1.5">Company (optional)</label>
+                        <input type="text" id="company" name="company" placeholder="Your company"
+                            class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 placeholder-[#444] focus:border-accent focus:outline-none transition-colors">
+                    </div>
+                    <div class="mb-4">
+                        <label for="use_case" class="block text-xs font-medium text-muted mb-1.5">What would you use this for?</label>
+                        <select id="use_case" name="use_case"
+                            class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 focus:border-accent focus:outline-none transition-colors appearance-none cursor-pointer">
+                            <option value="" disabled selected>Select a use case</option>
+                            <option value="deal-to-project">Auto-create projects from won deals</option>
+                            <option value="stage-tasks">Create tasks at pipeline stages</option>
+                            <option value="template-projects">Create projects from ClickUp templates</option>
+                            <option value="team-visibility">Give project team CRM visibility</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="notes" class="block text-xs font-medium text-muted mb-1.5">Anything else? (optional)</label>
+                        <textarea id="notes" name="notes" placeholder="Tell us about your workflow..." rows="3"
+                            class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 placeholder-[#444] focus:border-accent focus:outline-none transition-colors resize-y"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full mt-2 bg-accent text-white py-3.5 rounded-xl text-[15px] font-semibold hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(123,104,238,0.3)] transition-all cursor-pointer">
+                        Join the Waitlist →
+                    </button>
+                    <p class="text-center text-[11px] text-[#555] mt-4">No spam. We'll only email you about the integration launch.</p>
+                </form>
+
+                <div class="hidden text-center py-5" id="formSuccess">
+                    <div class="w-14 h-14 bg-[rgba(22,193,114,0.15)] rounded-full flex items-center justify-center text-3xl mx-auto mb-4">✓</div>
+                    <h3 class="text-xl font-semibold mb-2">You're on the list!</h3>
+                    <p class="text-sm text-muted">We'll let you know as soon as the integration is ready for early access.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="border-t border-border px-6 py-10">
+    <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-4">
+        <p class="text-xs text-muted">© 2025 PipeDrive Apps. All rights reserved.</p>
+        <div class="flex gap-6">
+            <a href="../integrations.html" class="text-xs text-muted hover:text-white transition-colors">Integrations</a>
+            <a href="../waitlist.html" class="text-xs text-muted hover:text-white transition-colors">Waitlist</a>
+            <a href="../contact.html" class="text-xs text-muted hover:text-white transition-colors">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('hamburger').addEventListener('click', () => { const n = document.getElementById('mobileNav'); n.classList.toggle('hidden'); n.classList.toggle('flex'); });
+
+    const form = document.getElementById('waitlistForm');
+    const success = document.getElementById('formSuccess');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Submitting...'; btn.disabled = true;
+        try {
+            const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+            if (response.ok) { form.style.display = 'none'; success.classList.remove('hidden'); }
+            else { throw new Error('Failed'); }
+        } catch (error) {
+            const name = form.querySelector('#name').value;
+            const email = form.querySelector('#email').value;
+            const company = form.querySelector('#company').value;
+            const useCase = form.querySelector('#use_case').value;
+            const notes = form.querySelector('#notes').value;
+            const subject = encodeURIComponent('Waitlist: ClickUp + Pipedrive Integration');
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company}\nUse Case: ${useCase}\nNotes: ${notes}`);
+            window.location.href = `mailto:hello@pipedriveapps.com?subject=${subject}&body=${body}`;
+            btn.textContent = 'Join the Waitlist →'; btn.disabled = false;
+        }
+    });
+
+    const observer = new IntersectionObserver((entries) => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

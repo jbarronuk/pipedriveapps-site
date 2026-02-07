@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get in Touch — PipeDrive Apps</title>
+    <meta name="description" content="Contact PipeDrive Apps. Tell us about your Pipedrive integration needs and we'll get back to you.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#0a0a0b', card: '#131316', 'card-hover': '#1a1a1f',
+                        border: '#222228', muted: '#8a8a96', accent: '#16c172', 'accent-dim': '#0e9455',
+                    },
+                    fontFamily: { sans: ['DM Sans', 'sans-serif'], mono: ['Space Mono', 'monospace'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-up { opacity: 0; transform: translateY(24px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-bg text-gray-100 font-sans antialiased">
+
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-4 bg-bg/80 backdrop-blur-xl border-b border-border flex items-center justify-between">
+    <a href="/" class="font-mono text-lg font-bold text-white tracking-tight">pipedrive<span class="text-accent">apps</span></a>
+    <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-muted hover:text-white transition-colors">Home</a>
+        <a href="our-apps.html" class="text-sm font-medium text-muted hover:text-white transition-colors">Our Apps</a>
+        <a href="contact.html" class="text-sm font-semibold bg-accent text-bg px-5 py-2 rounded-lg hover:bg-[#1dd980] transition-all">Get in Touch</a>
+    </div>
+    <button class="md:hidden" id="hamburger" aria-label="Menu">
+        <div class="w-5 h-0.5 bg-gray-200 mb-1.5"></div><div class="w-5 h-0.5 bg-gray-200 mb-1.5"></div><div class="w-5 h-0.5 bg-gray-200"></div>
+    </button>
+</nav>
+<div class="hidden fixed top-[57px] left-0 right-0 z-40 bg-bg border-b border-border p-6 flex-col gap-5" id="mobileNav">
+    <a href="/" class="text-sm font-medium text-muted hover:text-white">Home</a>
+    <a href="our-apps.html" class="text-sm font-medium text-muted hover:text-white">Our Apps</a>
+    <a href="contact.html" class="text-sm font-semibold bg-accent text-bg px-5 py-2 rounded-lg text-center">Get in Touch</a>
+</div>
+
+<!-- HERO -->
+<section class="pt-36 pb-8 px-6 text-center relative overflow-hidden">
+    <div class="absolute -top-[40%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(22,193,114,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+    <div class="relative max-w-xl mx-auto fade-up">
+        <h1 class="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-4">Get in Touch</h1>
+        <p class="text-[17px] text-muted max-w-md mx-auto leading-relaxed">Have a Pipedrive integration in mind? Tell us about your workflow and we'll work out how to make it happen.</p>
+    </div>
+</section>
+
+<!-- CONTACT FORM + INFO -->
+<section class="px-6 pt-8 pb-28">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-5 gap-10">
+
+        <!-- Form -->
+        <div class="md:col-span-3">
+            <div class="fade-up bg-card border border-border rounded-2xl px-8 md:px-10 py-10">
+                <!--
+                    SETUP: Replace YOUR_FORM_ID with your Formspree form ID.
+                    1. Sign up at https://formspree.io (free — 50 submissions/month)
+                    2. Create a form → copy the ID
+                    3. Replace YOUR_FORM_ID below
+                -->
+                <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="hidden" name="_subject" value="New Contact: PipeDrive Apps">
+
+                    <div class="mb-5">
+                        <label for="name" class="block text-xs font-medium text-muted mb-1.5">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required
+                            class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 placeholder-[#444] focus:border-accent focus:outline-none transition-colors">
+                    </div>
+                    <div class="mb-5">
+                        <label for="email" class="block text-xs font-medium text-muted mb-1.5">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@company.com" required
+                            class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 placeholder-[#444] focus:border-accent focus:outline-none transition-colors">
+                    </div>
+                    <div class="mb-5">
+                        <label for="interest" class="block text-xs font-medium text-muted mb-1.5">What are you looking for?</label>
+                        <select id="interest" name="interest"
+                            class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 focus:border-accent focus:outline-none transition-colors appearance-none cursor-pointer">
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="custom-integration">Custom Pipedrive integration</option>
+                            <option value="marketplace-app">Marketplace app enquiry</option>
+                            <option value="partnership">Partnership or collaboration</option>
+                            <option value="support">Support for an existing app</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-5">
+                        <label for="message" class="block text-xs font-medium text-muted mb-1.5">Tell us more</label>
+                        <textarea id="message" name="message" placeholder="Describe your workflow, the tools you use, and what you'd like to achieve..." rows="5" required
+                            class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 placeholder-[#444] focus:border-accent focus:outline-none transition-colors resize-y"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full mt-2 bg-accent text-bg py-3.5 rounded-xl text-[15px] font-semibold hover:bg-[#1dd980] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(22,193,114,0.25)] transition-all cursor-pointer">
+                        Send Message →
+                    </button>
+                </form>
+
+                <div class="hidden text-center py-8" id="formSuccess">
+                    <div class="w-14 h-14 bg-[rgba(22,193,114,0.15)] rounded-full flex items-center justify-center text-3xl mx-auto mb-4">✓</div>
+                    <h3 class="text-xl font-semibold mb-2">Message sent!</h3>
+                    <p class="text-sm text-muted">We'll get back to you as soon as we can.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="md:col-span-2 space-y-6">
+            <div class="fade-up bg-card border border-border rounded-2xl p-8">
+                <div class="text-2xl mb-4">📧</div>
+                <h3 class="text-base font-semibold mb-2">Email us directly</h3>
+                <a href="mailto:hello@pipedriveapps.com" class="text-accent text-sm hover:underline">hello@pipedriveapps.com</a>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-2xl p-8">
+                <div class="text-2xl mb-4">⚡</div>
+                <h3 class="text-base font-semibold mb-2">Quick response</h3>
+                <p class="text-sm text-muted leading-relaxed">We typically respond within 24 hours on business days.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-2xl p-8">
+                <div class="text-2xl mb-4">🏪</div>
+                <h3 class="text-base font-semibold mb-2">Looking for our apps?</h3>
+                <p class="text-sm text-muted leading-relaxed mb-3">Check out our ready-made Pipedrive integrations.</p>
+                <a href="our-apps.html" class="text-sm font-semibold text-accent hover:underline">View Our Apps →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="border-t border-border px-6 py-10">
+    <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-4">
+        <p class="text-xs text-muted">© 2025 PipeDrive Apps. All rights reserved.</p>
+        <div class="flex gap-6">
+            <a href="integrations.html" class="text-xs text-muted hover:text-white transition-colors">Integrations</a>
+            <a href="waitlist.html" class="text-xs text-muted hover:text-white transition-colors">Waitlist</a>
+            <a href="contact.html" class="text-xs text-muted hover:text-white transition-colors">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('hamburger').addEventListener('click', () => { const n = document.getElementById('mobileNav'); n.classList.toggle('hidden'); n.classList.toggle('flex'); });
+
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('formSuccess');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Sending...'; btn.disabled = true;
+        try {
+            const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+            if (response.ok) { form.style.display = 'none'; success.classList.remove('hidden'); }
+            else { throw new Error('Failed'); }
+        } catch (error) {
+            const name = form.querySelector('#name').value;
+            const email = form.querySelector('#email').value;
+            const interest = form.querySelector('#interest').value;
+            const message = form.querySelector('#message').value;
+            const subject = encodeURIComponent('Contact: PipeDrive Apps');
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInterest: ${interest}\nMessage: ${message}`);
+            window.location.href = `mailto:hello@pipedriveapps.com?subject=${subject}&body=${body}`;
+            btn.textContent = 'Send Message →'; btn.disabled = false;
+        }
+    });
+
+    const observer = new IntersectionObserver((entries) => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

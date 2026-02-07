@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Communication for Pipedrive | PipeDrive Apps</title>
+    <meta name="description" content="Team messaging and internal notes inside Pipedrive. Discuss deals, tag colleagues, and keep all communication in context against your CRM records.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#0a0a0b', card: '#131316', 'card-hover': '#1a1a1f',
+                        border: '#222228', muted: '#8a8a96',
+                        accent: '#5a189a', 'accent-hover': '#480f80',
+                        pipedrive: '#16c172',
+                    },
+                    fontFamily: { sans: ['DM Sans', 'sans-serif'], mono: ['Space Mono', 'monospace'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-up { opacity: 0; transform: translateY(24px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-bg text-gray-100 font-sans antialiased">
+
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-4 bg-bg/80 backdrop-blur-xl border-b border-border flex items-center justify-between">
+    <a href="../" class="font-mono text-lg font-bold text-white tracking-tight">pipedrive<span class="text-pipedrive">apps</span></a>
+    <div class="hidden md:flex items-center gap-8">
+        <a href="../" class="text-sm font-medium text-muted hover:text-white transition-colors">Home</a>
+        <a href="../our-apps.html" class="text-sm font-medium text-muted hover:text-white transition-colors">Our Apps</a>
+        <a href="#waitlist" class="text-sm font-semibold bg-accent text-white px-5 py-2 rounded-lg hover:bg-accent-hover transition-all">Join Waitlist</a>
+    </div>
+    <button class="md:hidden" id="hamburger" aria-label="Menu">
+        <div class="w-5 h-0.5 bg-gray-200 mb-1.5"></div><div class="w-5 h-0.5 bg-gray-200 mb-1.5"></div><div class="w-5 h-0.5 bg-gray-200"></div>
+    </button>
+</nav>
+<div class="hidden fixed top-[57px] left-0 right-0 z-40 bg-bg border-b border-border p-6 flex-col gap-5" id="mobileNav">
+    <a href="../" class="text-sm font-medium text-muted hover:text-white">Home</a>
+    <a href="../our-apps.html" class="text-sm font-medium text-muted hover:text-white">Our Apps</a>
+    <a href="#waitlist" class="text-sm font-semibold bg-accent text-white px-5 py-2 rounded-lg text-center">Join Waitlist</a>
+</div>
+
+<!-- HERO -->
+<section class="min-h-[85vh] flex items-center justify-center text-center px-6 pt-36 pb-20 relative overflow-hidden">
+    <div class="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(90,24,154,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+    <div class="relative max-w-2xl">
+        <a href="../waitlist.html" class="fade-up inline-flex items-center gap-1.5 text-sm text-muted hover:text-white transition-colors mb-8">&larr; Back to Upcoming Integrations</a>
+        <div class="fade-up flex justify-center mb-7">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#c77dff] to-[#5a189a] flex items-center justify-center text-3xl">💬</div>
+        </div>
+        <div class="fade-up mb-7">
+            <span class="inline-flex items-center gap-2 bg-[rgba(255,187,51,0.1)] border border-[rgba(255,187,51,0.2)] rounded-full px-4 py-1.5 text-xs font-semibold text-[#ffbb33] uppercase tracking-wider">Coming Soon</span>
+        </div>
+        <h1 class="fade-up text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-5">Internal Comms<br>for Pipedrive</h1>
+        <p class="fade-up text-lg text-muted max-w-lg mx-auto mb-9 leading-relaxed">Keep your team's conversations where the context is. Discuss deals, tag colleagues, share updates, and make decisions — all inside Pipedrive, linked to the records that matter.</p>
+        <a href="#waitlist" class="fade-up inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold bg-accent text-white hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(90,24,154,0.12)] transition-all">Join the Waitlist &rarr;</a>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="border-t border-border px-6 py-24">
+    <div class="max-w-5xl mx-auto">
+        <p class="fade-up font-mono text-xs uppercase tracking-[0.15em] text-accent mb-4">Planned Features</p>
+        <h2 class="fade-up text-3xl md:text-4xl font-bold tracking-tight mb-4">What we're building</h2>
+        <p class="fade-up text-base text-muted max-w-lg leading-relaxed mb-12">Designed to fit naturally into your Pipedrive workflow.</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="fade-up bg-card border border-border rounded-xl p-7 hover:border-[rgba(90,24,154,0.12)] transition-colors">
+                <div class="text-2xl mb-4">💬</div>
+                <h3 class="text-[17px] font-semibold mb-2">Deal Discussions</h3>
+                <p class="text-sm text-muted leading-relaxed">Start a conversation thread on any deal. Sales, delivery, and management can all collaborate without leaving Pipedrive.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7 hover:border-[rgba(90,24,154,0.12)] transition-colors">
+                <div class="text-2xl mb-4">🏷️</div>
+                <h3 class="text-[17px] font-semibold mb-2">@ Mentions</h3>
+                <p class="text-sm text-muted leading-relaxed">Tag team members to loop them into a conversation. They get notified instantly so nothing gets missed.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7 hover:border-[rgba(90,24,154,0.12)] transition-colors">
+                <div class="text-2xl mb-4">📌</div>
+                <h3 class="text-[17px] font-semibold mb-2">Pinned Messages</h3>
+                <p class="text-sm text-muted leading-relaxed">Pin important messages to the top of a deal or contact thread. Key decisions and context are always visible.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7 hover:border-[rgba(90,24,154,0.12)] transition-colors">
+                <div class="text-2xl mb-4">🔗</div>
+                <h3 class="text-[17px] font-semibold mb-2">Context-Linked</h3>
+                <p class="text-sm text-muted leading-relaxed">Every message is linked to a deal, contact, or organisation. No more searching Slack or email for that one conversation about a client.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7 hover:border-[rgba(90,24,154,0.12)] transition-colors">
+                <div class="text-2xl mb-4">🔔</div>
+                <h3 class="text-[17px] font-semibold mb-2">Smart Notifications</h3>
+                <p class="text-sm text-muted leading-relaxed">Get notified about conversations that matter to you. Filter by deal, team, or mention so you're not overwhelmed.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7 hover:border-[rgba(90,24,154,0.12)] transition-colors">
+                <div class="text-2xl mb-4">📁</div>
+                <h3 class="text-[17px] font-semibold mb-2">File Sharing</h3>
+                <p class="text-sm text-muted leading-relaxed">Share documents, images, and files in conversation threads. Everything stays linked to the right CRM record.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="border-t border-border px-6 py-24" id="waitlist">
+    <div class="max-w-xl mx-auto">
+        <div class="fade-up bg-card border border-border rounded-2xl px-8 md:px-10 py-12 text-center relative overflow-hidden">
+            <div class="absolute -bottom-[40%] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(90,24,154,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+            <div class="relative">
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Join the Waitlist</h2>
+                <p class="text-[15px] text-muted mb-7 leading-relaxed">Be the first to know when this launches. Early access members get priority onboarding.</p>
+                <form class="text-left" id="waitlistForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="hidden" name="_subject" value="Waitlist: Internal Communication for Pipedrive">
+                    <div class="mb-4">
+                        <label for="name" class="block text-xs font-medium text-muted mb-1.5">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 placeholder-[#444] focus:border-accent focus:outline-none transition-colors">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-xs font-medium text-muted mb-1.5">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@company.com" required class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 placeholder-[#444] focus:border-accent focus:outline-none transition-colors">
+                    </div>
+                    <div class="mb-4">
+                        <label for="company" class="block text-xs font-medium text-muted mb-1.5">Company (optional)</label>
+                        <input type="text" id="company" name="company" placeholder="Your company" class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 placeholder-[#444] focus:border-accent focus:outline-none transition-colors">
+                    </div>
+                    <div class="mb-4">
+                        <label for="notes" class="block text-xs font-medium text-muted mb-1.5">What would you use this for? (optional)</label>
+                        <textarea id="notes" name="notes" placeholder="Tell us about your workflow..." rows="3" class="w-full bg-bg border border-border rounded-lg px-4 py-3 text-[15px] text-gray-100 placeholder-[#444] focus:border-accent focus:outline-none transition-colors resize-y"></textarea>
+                    </div>
+                    <button type="submit" class="w-full mt-2 bg-accent text-white py-3.5 rounded-xl text-[15px] font-semibold hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(90,24,154,0.12)] transition-all cursor-pointer">Join the Waitlist &rarr;</button>
+                    <p class="text-center text-[11px] text-[#555] mt-4">No spam. We'll only email you when this launches.</p>
+                </form>
+                <div class="hidden text-center py-5" id="formSuccess">
+                    <div class="w-14 h-14 bg-[rgba(22,193,114,0.15)] rounded-full flex items-center justify-center text-3xl mx-auto mb-4">&#10003;</div>
+                    <h3 class="text-xl font-semibold mb-2">You're on the list!</h3>
+                    <p class="text-sm text-muted">We'll let you know as soon as this is ready for early access.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="border-t border-border px-6 py-10">
+    <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-4">
+        <p class="text-xs text-muted">&copy; 2025 PipeDrive Apps. All rights reserved.</p>
+        <div class="flex gap-6">
+            <a href="../integrations.html" class="text-xs text-muted hover:text-white transition-colors">Integrations</a>
+            <a href="../waitlist.html" class="text-xs text-muted hover:text-white transition-colors">Waitlist</a>
+            <a href="../contact.html" class="text-xs text-muted hover:text-white transition-colors">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('hamburger').addEventListener('click', () => { const n = document.getElementById('mobileNav'); n.classList.toggle('hidden'); n.classList.toggle('flex'); });
+    const form = document.getElementById('waitlistForm');
+    const success = document.getElementById('formSuccess');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Submitting...'; btn.disabled = true;
+        try {
+            const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+            if (response.ok) { form.style.display = 'none'; success.classList.remove('hidden'); }
+            else { throw new Error('Failed'); }
+        } catch (error) {
+            const name = form.querySelector('#name').value;
+            const email = form.querySelector('#email').value;
+            const company = form.querySelector('#company').value;
+            const notes = form.querySelector('#notes').value;
+            const subject = encodeURIComponent('Waitlist: Internal Communication for Pipedrive');
+            const body = encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nCompany: '+company+'\nNotes: '+notes);
+            window.location.href = 'mailto:hello@pipedriveapps.com?subject='+subject+'&body='+body;
+            btn.textContent = 'Join the Waitlist \u2192'; btn.disabled = false;
+        }
+    });
+    const observer = new IntersectionObserver((entries) => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

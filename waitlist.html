@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Pipedrive Integrations — Join the Waitlist | PipeDrive Apps</title>
+    <meta name="description" content="Be the first to try our upcoming Pipedrive integrations. Join the waitlist for early access to new apps connecting Pipedrive with the tools your team uses.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#0a0a0b', card: '#131316', 'card-hover': '#1a1a1f',
+                        border: '#222228', muted: '#8a8a96', accent: '#16c172', 'accent-dim': '#0e9455',
+                    },
+                    fontFamily: { sans: ['DM Sans', 'sans-serif'], mono: ['Space Mono', 'monospace'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-up { opacity: 0; transform: translateY(24px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-bg text-gray-100 font-sans antialiased">
+
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-4 bg-bg/80 backdrop-blur-xl border-b border-border flex items-center justify-between">
+    <a href="/" class="font-mono text-lg font-bold text-white tracking-tight">pipedrive<span class="text-accent">apps</span></a>
+    <div class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-sm font-medium text-muted hover:text-white transition-colors">Home</a>
+        <a href="our-apps.html" class="text-sm font-medium text-muted hover:text-white transition-colors">Our Apps</a>
+        <a href="contact.html" class="text-sm font-semibold bg-accent text-bg px-5 py-2 rounded-lg hover:bg-[#1dd980] transition-all">Get in Touch</a>
+    </div>
+    <button class="md:hidden" id="hamburger" aria-label="Menu">
+        <div class="w-5 h-0.5 bg-gray-200 mb-1.5"></div><div class="w-5 h-0.5 bg-gray-200 mb-1.5"></div><div class="w-5 h-0.5 bg-gray-200"></div>
+    </button>
+</nav>
+<div class="hidden fixed top-[57px] left-0 right-0 z-40 bg-bg border-b border-border p-6 flex-col gap-5" id="mobileNav">
+    <a href="/" class="text-sm font-medium text-muted hover:text-white">Home</a>
+    <a href="our-apps.html" class="text-sm font-medium text-muted hover:text-white">Our Apps</a>
+    <a href="contact.html" class="text-sm font-semibold bg-accent text-bg px-5 py-2 rounded-lg text-center">Get in Touch</a>
+</div>
+
+<section class="pt-36 pb-8 px-6 text-center relative overflow-hidden">
+    <div class="absolute -top-[40%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(22,193,114,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+    <div class="relative max-w-xl mx-auto fade-up">
+        <p class="font-mono text-xs uppercase tracking-[0.15em] text-accent mb-4">Coming Soon</p>
+        <h1 class="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-4">Upcoming Integrations</h1>
+        <p class="text-[17px] text-muted max-w-md mx-auto leading-relaxed">Pipedrive integrations we're currently building. Join the waitlist to get early access when they launch.</p>
+    </div>
+</section>
+
+<section class="px-6 pt-8 pb-28">
+    <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <a href="apps/clickup-pipedrive.html" class="fade-up block bg-card border border-border rounded-2xl p-7 hover:border-[#444] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#7b68ee] to-[#49ccf9] flex items-center justify-center text-lg shrink-0">⇄</div>
+                    <div>
+                        <h3 class="text-base font-semibold">ClickUp + Pipedrive</h3>
+                        <span class="inline-block mt-0.5 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[rgba(255,187,51,0.15)] text-[#ffbb33]">Coming Soon</span>
+                    </div>
+                </div>
+                <p class="text-sm text-muted leading-relaxed">Automatically create ClickUp projects from templates when deals move through your pipeline.</p>
+                <span class="flex items-center gap-1 mt-4 text-sm font-semibold text-[#7b68ee]">Join Waitlist →</span>
+            </a>
+
+            <a href="apps/vonage-pipedrive.html" class="fade-up block bg-card border border-border rounded-2xl p-7 hover:border-[#444] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#ff8c42] to-[#e85d04] flex items-center justify-center text-lg shrink-0">📞</div>
+                    <div>
+                        <h3 class="text-base font-semibold">Vonage Phone</h3>
+                        <span class="inline-block mt-0.5 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[rgba(255,187,51,0.15)] text-[#ffbb33]">Coming Soon</span>
+                    </div>
+                </div>
+                <p class="text-sm text-muted leading-relaxed">Click-to-call, automatic call logging, and recordings linked to your deals and contacts.</p>
+                <span class="flex items-center gap-1 mt-4 text-sm font-semibold text-[#e85d04]">Join Waitlist →</span>
+            </a>
+
+            <a href="apps/zoom-phone-pipedrive.html" class="fade-up block bg-card border border-border rounded-2xl p-7 hover:border-[#444] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#69b4ff] to-[#2d8cff] flex items-center justify-center text-lg shrink-0">🔵</div>
+                    <div>
+                        <h3 class="text-base font-semibold">Zoom Phone</h3>
+                        <span class="inline-block mt-0.5 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[rgba(255,187,51,0.15)] text-[#ffbb33]">Coming Soon</span>
+                    </div>
+                </div>
+                <p class="text-sm text-muted leading-relaxed">Zoom Phone integration with click-to-call, call logging, recordings, and SMS — all in Pipedrive.</p>
+                <span class="flex items-center gap-1 mt-4 text-sm font-semibold text-[#2d8cff]">Join Waitlist →</span>
+            </a>
+
+            <a href="apps/gantt-charts-pipedrive.html" class="fade-up block bg-card border border-border rounded-2xl p-7 hover:border-[#444] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#48cae4] to-[#0077b6] flex items-center justify-center text-lg shrink-0">📊</div>
+                    <div>
+                        <h3 class="text-base font-semibold">Gantt Charts</h3>
+                        <span class="inline-block mt-0.5 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[rgba(255,187,51,0.15)] text-[#ffbb33]">Coming Soon</span>
+                    </div>
+                </div>
+                <p class="text-sm text-muted leading-relaxed">Add Gantt chart project views to Pipedrive. Visualise timelines, dependencies, and milestones.</p>
+                <span class="flex items-center gap-1 mt-4 text-sm font-semibold text-[#0077b6]">Join Waitlist →</span>
+            </a>
+
+            <a href="apps/customer-portal-pipedrive.html" class="fade-up block bg-card border border-border rounded-2xl p-7 hover:border-[#444] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#b185db] to-[#6a4c93] flex items-center justify-center text-lg shrink-0">🏢</div>
+                    <div>
+                        <h3 class="text-base font-semibold">Customer Portal</h3>
+                        <span class="inline-block mt-0.5 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[rgba(255,187,51,0.15)] text-[#ffbb33]">Coming Soon</span>
+                    </div>
+                </div>
+                <p class="text-sm text-muted leading-relaxed">Give clients a branded portal to track deals, view project updates, and access shared documents.</p>
+                <span class="flex items-center gap-1 mt-4 text-sm font-semibold text-[#6a4c93]">Join Waitlist →</span>
+            </a>
+
+            <a href="apps/inventory-pipedrive.html" class="fade-up block bg-card border border-border rounded-2xl p-7 hover:border-[#444] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#74c69d] to-[#2d6a4f] flex items-center justify-center text-lg shrink-0">📦</div>
+                    <div>
+                        <h3 class="text-base font-semibold">Inventory Management</h3>
+                        <span class="inline-block mt-0.5 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[rgba(255,187,51,0.15)] text-[#ffbb33]">Coming Soon</span>
+                    </div>
+                </div>
+                <p class="text-sm text-muted leading-relaxed">Track stock levels, manage products, and link inventory to deals directly inside Pipedrive.</p>
+                <span class="flex items-center gap-1 mt-4 text-sm font-semibold text-[#2d6a4f]">Join Waitlist →</span>
+            </a>
+
+            <a href="apps/activity-monitor-pipedrive.html" class="fade-up block bg-card border border-border rounded-2xl p-7 hover:border-[#444] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#ff6b8a] to-[#c9184a] flex items-center justify-center text-lg shrink-0">📈</div>
+                    <div>
+                        <h3 class="text-base font-semibold">Activity Monitoring</h3>
+                        <span class="inline-block mt-0.5 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[rgba(255,187,51,0.15)] text-[#ffbb33]">Coming Soon</span>
+                    </div>
+                </div>
+                <p class="text-sm text-muted leading-relaxed">Monitor your sales team's calls, emails, meetings, and deal progress with dashboards and targets.</p>
+                <span class="flex items-center gap-1 mt-4 text-sm font-semibold text-[#c9184a]">Join Waitlist →</span>
+            </a>
+
+            <a href="apps/checklists-pipedrive.html" class="fade-up block bg-card border border-border rounded-2xl p-7 hover:border-[#444] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#fcbf49] to-[#f77f00] flex items-center justify-center text-lg shrink-0">✅</div>
+                    <div>
+                        <h3 class="text-base font-semibold">Checklists</h3>
+                        <span class="inline-block mt-0.5 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[rgba(255,187,51,0.15)] text-[#ffbb33]">Coming Soon</span>
+                    </div>
+                </div>
+                <p class="text-sm text-muted leading-relaxed">Add checklists to deals, contacts, and activities. Ensure your team follows the right process every time.</p>
+                <span class="flex items-center gap-1 mt-4 text-sm font-semibold text-[#f77f00]">Join Waitlist →</span>
+            </a>
+
+            <a href="apps/internal-comms-pipedrive.html" class="fade-up block bg-card border border-border rounded-2xl p-7 hover:border-[#444] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#c77dff] to-[#5a189a] flex items-center justify-center text-lg shrink-0">💬</div>
+                    <div>
+                        <h3 class="text-base font-semibold">Internal Comms</h3>
+                        <span class="inline-block mt-0.5 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[rgba(255,187,51,0.15)] text-[#ffbb33]">Coming Soon</span>
+                    </div>
+                </div>
+                <p class="text-sm text-muted leading-relaxed">Team messaging against deals, contacts, and organisations. Keep conversations where the context is.</p>
+                <span class="flex items-center gap-1 mt-4 text-sm font-semibold text-[#5a189a]">Join Waitlist →</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section class="border-t border-border px-6 py-24 text-center">
+    <div class="max-w-5xl mx-auto">
+        <div class="fade-up bg-card border border-border rounded-2xl px-10 py-16">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3">Want an integration we haven't listed?</h2>
+            <p class="text-[17px] text-muted max-w-md mx-auto mb-8 leading-relaxed">We're always looking for the next tool to connect with Pipedrive. Let us know what you need.</p>
+            <a href="contact.html" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold bg-accent text-bg hover:bg-[#1dd980] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(22,193,114,0.25)] transition-all">Suggest an Integration →</a>
+        </div>
+    </div>
+</section>
+
+<footer class="border-t border-border px-6 py-10">
+    <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-4">
+        <p class="text-xs text-muted">&copy; 2025 PipeDrive Apps. All rights reserved.</p>
+        <div class="flex gap-6">
+            <a href="integrations.html" class="text-xs text-muted hover:text-white transition-colors">Integrations</a>
+            <a href="waitlist.html" class="text-xs text-muted hover:text-white transition-colors">Waitlist</a>
+            <a href="contact.html" class="text-xs text-muted hover:text-white transition-colors">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('hamburger').addEventListener('click', () => { const n = document.getElementById('mobileNav'); n.classList.toggle('hidden'); n.classList.toggle('flex'); });
+    const observer = new IntersectionObserver((entries) => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

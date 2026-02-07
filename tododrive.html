@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoDrive — Microsoft To Do + Pipedrive Integration | PipeDrive Apps</title>
+    <meta name="description" content="TodoDrive connects Microsoft To Do with Pipedrive. Manage your CRM tasks and activities from Microsoft To Do.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#0a0a0b', card: '#131316', 'card-hover': '#1a1a1f',
+                        border: '#222228', muted: '#8a8a96', accent: '#16c172', 'accent-dim': '#0e9455',
+                    },
+                    fontFamily: { sans: ['DM Sans', 'sans-serif'], mono: ['Space Mono', 'monospace'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-up { opacity: 0; transform: translateY(24px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-bg text-gray-100 font-sans antialiased">
+
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-4 bg-bg/80 backdrop-blur-xl border-b border-border flex items-center justify-between">
+    <a href="../" class="font-mono text-lg font-bold text-white tracking-tight">pipedrive<span class="text-accent">apps</span></a>
+    <div class="hidden md:flex items-center gap-8">
+        <a href="../" class="text-sm font-medium text-muted hover:text-white transition-colors">Home</a>
+        <a href="../our-apps.html" class="text-sm font-medium text-muted hover:text-white transition-colors">Our Apps</a>
+        <a href="https://tododrive.com" target="_blank" rel="noopener" class="text-sm font-semibold bg-accent text-bg px-5 py-2 rounded-lg hover:bg-[#1dd980] transition-all">Visit TodoDrive ↗</a>
+    </div>
+    <button class="md:hidden" id="hamburger" aria-label="Menu">
+        <div class="w-5 h-0.5 bg-gray-200 mb-1.5"></div><div class="w-5 h-0.5 bg-gray-200 mb-1.5"></div><div class="w-5 h-0.5 bg-gray-200"></div>
+    </button>
+</nav>
+<div class="hidden fixed top-[57px] left-0 right-0 z-40 bg-bg border-b border-border p-6 flex-col gap-5" id="mobileNav">
+    <a href="../" class="text-sm font-medium text-muted hover:text-white">Home</a>
+    <a href="../our-apps.html" class="text-sm font-medium text-muted hover:text-white">Our Apps</a>
+    <a href="https://tododrive.com" target="_blank" rel="noopener" class="text-sm font-semibold bg-accent text-bg px-5 py-2 rounded-lg text-center">Visit TodoDrive ↗</a>
+</div>
+
+<!-- HERO -->
+<section class="min-h-[80vh] flex items-center justify-center text-center px-6 pt-36 pb-20 relative overflow-hidden">
+    <div class="absolute -top-[30%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(22,193,114,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+    <div class="relative max-w-2xl">
+        <a href="../our-apps.html" class="fade-up inline-flex items-center gap-1.5 text-sm text-muted hover:text-white transition-colors mb-8">← Back to Our Apps</a>
+        <div class="fade-up flex justify-center mb-7">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#4aeaac] to-accent flex items-center justify-center text-3xl">✓</div>
+        </div>
+        <h1 class="fade-up text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-5">TodoDrive</h1>
+        <div class="fade-up mb-6">
+            <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-md bg-[rgba(22,193,114,0.15)] text-accent">Live on Marketplace</span>
+        </div>
+        <p class="fade-up text-lg text-muted max-w-md mx-auto mb-9 leading-relaxed">Connect Microsoft To Do with Pipedrive. Manage your CRM activities and tasks from the to-do app you already use every day.</p>
+        <a href="https://tododrive.com" target="_blank" rel="noopener" class="fade-up inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold bg-accent text-bg hover:bg-[#1dd980] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(22,193,114,0.25)] transition-all">Visit TodoDrive.com →</a>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="border-t border-border px-6 py-20">
+    <div class="max-w-5xl mx-auto">
+        <p class="fade-up font-mono text-xs uppercase tracking-[0.15em] text-accent mb-4">What It Does</p>
+        <h2 class="fade-up text-3xl md:text-4xl font-bold tracking-tight mb-12">Pipedrive + Microsoft To Do, connected</h2>
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="fade-up bg-card border border-border rounded-xl p-7">
+                <div class="text-2xl mb-4">📋</div>
+                <h3 class="text-[17px] font-semibold mb-2">Tasks Where You Want Them</h3>
+                <p class="text-sm text-muted leading-relaxed">Your Pipedrive activities and tasks appear in Microsoft To Do automatically. Work from a single task list instead of switching between apps.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7">
+                <div class="text-2xl mb-4">🔗</div>
+                <h3 class="text-[17px] font-semibold mb-2">Microsoft To Do Integration</h3>
+                <p class="text-sm text-muted leading-relaxed">Built as a native bridge between Pipedrive and Microsoft To Do. If your team lives in the Microsoft ecosystem, TodoDrive fits right in.</p>
+            </div>
+            <div class="fade-up bg-card border border-border rounded-xl p-7">
+                <div class="text-2xl mb-4">⚡</div>
+                <h3 class="text-[17px] font-semibold mb-2">Simple Setup</h3>
+                <p class="text-sm text-muted leading-relaxed">Connect your Pipedrive and Microsoft accounts and you're up and running. No complex configuration needed.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="px-6 pb-24">
+    <div class="max-w-5xl mx-auto">
+        <div class="fade-up bg-card border border-border rounded-2xl px-10 py-16 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3">Ready to connect Pipedrive and Microsoft To Do?</h2>
+            <p class="text-muted text-base max-w-md mx-auto mb-7">Head to the TodoDrive website to learn more, see pricing, and get started.</p>
+            <a href="https://tododrive.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold bg-accent text-bg hover:bg-[#1dd980] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(22,193,114,0.25)] transition-all">Go to TodoDrive.com →</a>
+        </div>
+    </div>
+</section>
+
+<footer class="border-t border-border px-6 py-10">
+    <div class="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-4">
+        <p class="text-xs text-muted">© 2025 PipeDrive Apps. All rights reserved.</p>
+        <div class="flex gap-6">
+            <a href="../integrations.html" class="text-xs text-muted hover:text-white transition-colors">Integrations</a>
+            <a href="../waitlist.html" class="text-xs text-muted hover:text-white transition-colors">Waitlist</a>
+            <a href="../contact.html" class="text-xs text-muted hover:text-white transition-colors">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('hamburger').addEventListener('click', () => { const n = document.getElementById('mobileNav'); n.classList.toggle('hidden'); n.classList.toggle('flex'); });
+    const observer = new IntersectionObserver((entries) => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
